@@ -7,5 +7,5 @@ vendor/*
 */cache/*
 web/uploads/*
 
-
-.settings/*
+# Eclipse setting directories
+/.settings
