@@ -23,6 +23,7 @@
         "white-october/pagerfanta-bundle": "dev-master",
         "stof/doctrine-extensions-bundle": "master-dev",
         "elao/web-profiler-extra-bundle": "master-dev",
+        "friendsofsymfony/user-bundle": "2.0.*@dev",
         "mockery/mockery": "dev-master"
     },
     "scripts": {
