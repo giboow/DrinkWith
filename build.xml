@@ -171,8 +171,9 @@
         description="Update vendors" >
 
         <exec
-            executable="php composer.phar"
+            executable="php"
             failonerror="true" >
+            <arg value="composer.phar" />
             <arg value="update" />
         </exec>
     </target>
