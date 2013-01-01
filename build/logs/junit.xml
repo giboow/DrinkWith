@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Project Test Suite" tests="1" assertions="1" failures="0" errors="0" time="1.033969">
+    <testsuite name="Acme\DemoBundle\Tests\Controller\DemoControllerTest" file="/Users/philippe/git/DrinkWith/src/Acme/DemoBundle/Tests/Controller/DemoControllerTest.php" namespace="Acme\DemoBundle\Tests\Controller" fullPackage="Acme.DemoBundle.Tests.Controller" tests="1" assertions="1" failures="0" errors="0" time="1.033969">
+      <testcase name="testIndex" class="Acme\DemoBundle\Tests\Controller\DemoControllerTest" file="/Users/philippe/git/DrinkWith/src/Acme/DemoBundle/Tests/Controller/DemoControllerTest.php" line="9" assertions="1" time="1.033969"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
