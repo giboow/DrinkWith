@@ -6,6 +6,6 @@ vendor/*
 */logs/*
 */cache/*
 web/uploads/*
-web/bundles/*
 
 
+.settings/*
