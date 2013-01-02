@@ -59,3 +59,15 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+parameters:
+    assetic.filter.compass.images_dir: %kernel.root_dir%/../web/img
+    assetic.filter.compass.http_path:  /img
+
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    filters:
+        cssrewrite: ~
+        compass:
+            bin: /usr/bin/compass
+
