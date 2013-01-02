@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		{% block stylesheets %}
+	    <link href="{{ asset('bundles/picweek/css/main.css') }}" rel="stylsheet" type="text/css">
+	    {% endblock %}
+
+	    {% block headJavascripts %}
+		{% endblock %}
+
+		<title>{% block title %}Picnick Break{% endblock %}</title>
+    </head>
+    <body>
+    	<header>
+    	</header>
+    	<div id="content">
+        	{% block content %}
+            {% endblock %}
+        </div>
+        <footer>
+        </footer>
+    </body>
+</html>
