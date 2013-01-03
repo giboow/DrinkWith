@@ -70,7 +70,7 @@ assetic:
     filters:
         cssrewrite: ~
         compass:
-            bin: /usr/bin/compass
+            #bin: /usr/bin/compass
             apply_to: "\.(scss|sass)$"
 
 
