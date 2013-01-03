@@ -2,3 +2,19 @@ body {
 	margin : 0;
 	padding: 0;
 }
+
+a {
+	text-decoration : none;
+	color: black;
+	&:hover {
+		text-decoration : underline;
+	}
+}
+
+ul {
+	margin : 0;
+	padding : 0;
+	li {
+
+	}
+}

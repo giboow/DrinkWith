@@ -4,29 +4,40 @@
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		{% block stylesheets %}
-	    {% stylesheets "@DrinkWithMainBundle/Resources/assets/scss/clear.scss"
-	    				"@DrinkWithMainBundle/Resources/assets/scss/main.scss"
-	    				output="style/drink-main.css"%}
-		<link rel="stylesheet" href="{{ asset_url }}" />
-		{% endstylesheets %}
+		    {% stylesheets filter="compass" "@DrinkWithMainBundle/Resources/assets/scss/clear.scss"
+		    				"@DrinkWithMainBundle/Resources/assets/scss/main.scss"
+	    					output="style/drink-main.css"%}
+			<link rel="stylesheet" href="{{ asset_url }}" />
+			{% endstylesheets %}
 
-	    <link href="{{ asset('bundles/picweek/css/main.css') }}" rel="stylsheet" type="text/css">
+		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	    {% endblock %}
 
 	    {% block headJavascripts %}
 		{% endblock %}
 
-
 		<title>{% block title %}Drink With{% endblock %}</title>
     </head>
     <body>
-    	<header>
+    	<header id="topHeader">
+    		<div id="logo">Drink-With.me</div>
+    		<nav id="navHeader">
+    			<ul>
+    				<li>{{ 'home'|trans|upper }}</li>
+    			</ul>
+    		</nav>
+    		<div id="login">
+    			{{ 'login'|trans|upper }}
+    		</div>
     	</header>
     	<div id="content">
         	{% block content %}
             {% endblock %}
         </div>
-        <footer>
+        <footer id="bottomFooter">
+        	<div id="copyrights">
+        	 &copy;{{ "now"|date("Y") }} Drink-With.me - <a href="">{{ 'contact.us'|trans }}</a>
+        	</div>
         </footer>
     </body>
 </html>
