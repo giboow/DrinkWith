@@ -155,7 +155,19 @@
     </target>
 
     <target
+        name="assetic"
+        description="assetic update" >
+        <exec
+            executable="app/console"
+            failonerror="true" >
+            <arg value="assetic:dump" />
+            <arg value="--env=prod" />
+            <arg value="--no-debug" />
+        </exec>
+    </target>
+
+    <target
         name="build"
-        depends="clean,vendors,cacheClear,parallelTasks,phpunit,phpcb,phpdoc" />
+        depends="clean,vendors,cacheClear,assetic,parallelTasks,phpunit,phpcb,phpdoc" />
 
 </project>

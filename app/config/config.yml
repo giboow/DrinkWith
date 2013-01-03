@@ -70,4 +70,6 @@ assetic:
         cssrewrite: ~
         compass:
             bin: /usr/bin/compass
+            apply_to: "\.(scss|sass)$"
+
 
