@@ -1,5 +1,5 @@
 set :application, "drink-with"
-set :domain,      "#{application}.com"
+set :domain,      "#{application}.me"
 set :deploy_to,   "/var/www/#{domain}"
 set :app_path,    "app"
 
