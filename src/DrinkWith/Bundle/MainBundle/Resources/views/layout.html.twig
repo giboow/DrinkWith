@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-		{% block stylesheets %}
-		    {% stylesheets filter="compass" "@DrinkWithMainBundle/Resources/assets/scss/clear.scss"
-		    				"@DrinkWithMainBundle/Resources/assets/scss/main.scss"
-	    					output="style/drink-main.css"%}
-			<link rel="stylesheet" href="{{ asset_url }}" />
-			{% endstylesheets %}
+        {% block stylesheets %}
+            {% stylesheets filter="compass" "@DrinkWithMainBundle/Resources/assets/scss/clear.scss"
+                            "@DrinkWithMainBundle/Resources/assets/scss/main.scss"
+                            output="style/drink-main.css"%}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
 
-		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-	    {% endblock %}
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        {% endblock %}
 
-	    {% block headJavascripts %}
-		{% endblock %}
+        {% block headJavascripts %}
+        {% endblock %}
 
-		<title>{% block title %}Drink With{% endblock %}</title>
+        <title>{% block title %}Drink With{% endblock %}</title>
     </head>
     <body>
-    	<header id="topHeader">
-    		<div id="logo">Drink-With.me</div>
-    		<nav id="navHeader">
-    			<ul>
-    				<li>{{ 'home'|trans|upper }}</li>
-    			</ul>
-    		</nav>
-    		<div id="login">
-    			{{ 'login'|trans|upper }}
-    		</div>
-    	</header>
-    	<div id="content">
-        	{% block content %}
+        <header id="topHeader">
+            <div id="logo">Drink-With.me</div>
+            <nav id="navHeader">
+                <ul>
+                    <li>{{ 'home'|trans|upper }}</li>
+                </ul>
+            </nav>
+            <div id="connect">
+                <div id="login">
+                    {{ 'login'|trans|upper }}
+                </div>
+                <div id="subscribe">
+                    {{ 'subscribe'|trans|upper }}
+                </div>
+            </div>
+        </header>
+        <div id="content">
+            {% block content %}
             {% endblock %}
         </div>
         <footer id="bottomFooter">
-        	<div id="copyrights">
-        	 &copy;{{ "now"|date("Y") }} Drink-With.me - <a href="">{{ 'contact.us'|trans }}</a>
-        	</div>
+            <div id="copyrights">
+             &copy;{{ "now"|date("Y") }} <a href="">drink-with.me</a> - <a href="{{ path("_home") }}">{{ 'contact.us'|trans }}</a>
+            </div>
         </footer>
     </body>
 </html>
