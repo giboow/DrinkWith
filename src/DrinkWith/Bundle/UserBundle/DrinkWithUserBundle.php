@@ -11,4 +11,14 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class DrinkWithUserBundle extends Bundle
 {
+    /**
+     * (non-PHPdoc)
+     * @see Symfony\Component\HttpKernel\Bundle.Bundle::getParent()
+     *
+     * @return string
+     */
+    public function getParent()
+    {
+        return 'FOSUserBundle';
+    }
 }
