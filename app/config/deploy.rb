@@ -15,12 +15,9 @@ set :use_set_permissions, true
 
 set :repository,  "git@github.com:giboow/DrinkWith.git"
 set :scm,         :git
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `subversion`, `mercurial`, `perforce`, or `none`
+
 
 set :model_manager, "doctrine"
-# Or: `propel`
-
-
 
 role :web,        domain                         # Your HTTP server, Apache/etc
 role :app,        domain                         # This may be the same as your `Web` server
