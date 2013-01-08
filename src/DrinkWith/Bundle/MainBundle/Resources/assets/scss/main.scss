@@ -38,14 +38,14 @@ header#topHeader {
             cursor: pointer;
             color: $white;
         }
-        #login {
+        #btLogin {
             @extend .bt_connect;
             background-color: $green;
             &:hover{
                 background-color: $greenLight;
             };
         }
-        #subscribe {
+        #btJoin {
             @extend .bt_connect;
             background-color: $yellow;
             &:hover{

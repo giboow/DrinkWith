@@ -1,0 +1,4 @@
+#login
+security:
+    login:
+        forgot_passwd: "Forgot password ?"
