@@ -1,3 +1,9 @@
+set :stages,        %w(production staging)
+set :default_stage, "production"
+set :stage_dir,     "app/config"
+require 'capistrano/ext/multistage'
+
+
 set :application, "drink-with"
 set :domain,      "#{application}.me"
 set :deploy_to,   "/var/www/#{domain}"
@@ -34,4 +40,4 @@ set :update_vendors, true
 logger.level = Logger::MAX_LEVEL
 
 # Run migrations before warming the cache
-before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"
+#before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"
