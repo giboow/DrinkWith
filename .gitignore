@@ -11,3 +11,4 @@ web/uploads/*
 # Eclipse setting directories
 /.settings
 .DS_STORE
+/composer.lock
