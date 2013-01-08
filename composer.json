@@ -24,8 +24,10 @@
         "stof/doctrine-extensions-bundle": "master-dev",
         "elao/web-profiler-extra-bundle": "master-dev",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
-        "mockery/mockery": "dev-master",
-        "monolog/monolog": "1.2.1"
+        "facebook/php-sdk": "dev-master",
+        "friendsofsymfony/facebook-bundle": "dev-master",
+        "monolog/monolog": "1.2.1",
+        "mockery/mockery": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
