@@ -34,4 +34,4 @@ set :update_vendors, true
 logger.level = Logger::MAX_LEVEL
 
 # Run migrations before warming the cache
-# before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"
+before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"
