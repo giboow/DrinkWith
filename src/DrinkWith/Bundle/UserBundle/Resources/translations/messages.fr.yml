@@ -1,4 +1,6 @@
 #login
 security:
     login:
+        title: "Se Connecter"
         forgot_passwd: "Mot de passe oublié ?"
+        subscribe : "ou <a href=\"%link%\">s'inscrire</a>"

@@ -12,37 +12,38 @@
 {% endblock %}
 
 {% block content %}
-<div>
-    <div class="title">Login</div>
+<div id="login">
+    <div class="title">{{ "security.login.title"|trans|title }}</div>
     <form class="user-form login-form" action="{{ path("fos_user_security_check") }}" method="post">
     {% if error %}
         <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
     {% endif %}
 
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-        <ul>
-            <li>
-                <div class="text-box ">
-                    <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ "security.login.username"|trans({}, 'FOSUserBundle')|replace({":":""}) }}"/>
-                </div>
-            </li>
-            <li>
-                <div class="text-box">
-                    <input type="password" id="password" name="_password" placeholder="{{ "security.login.password"|trans({}, 'FOSUserBundle')|replace({":":""}) }}" />
-                </div>
-            </li>
-            <li>
-                <div class="text-box">
-                    <input type="checkbox" id="remember_me" name="_remember_me" checked="checked" /> {{ "security.login.remember_me"|trans({}, 'FOSUserBundle')|replace({":":""}) }}
-                </div>
-            </li>
-            <li>
-                <div class="text-box">
-                    <input type="submit" name="login" value="{{ "security.login.submit"|trans({}, 'FOSUserBundle')|replace({":":""}) }}"/>
-                    <a href="{{ path('fos_user_resetting_request') }}">{{ "security.login.forgot_passwd"|trans}}</a>
-                </div>
-            </li>
-        </ul>
+        <div class="element">
+            <div class="text-box ">
+                <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="{{ "security.login.username"|trans({}, 'FOSUserBundle')|replace({":":""}) }}"/>
+            </div>
+        </div>
+        <div class="element">
+            <div id="ressetPasswd">
+                <a href="{{ path('fos_user_resetting_request') }}">({{ "security.login.forgot_passwd"|trans}})</a>
+            </div>
+            <div class="text-box">
+                <input type="password" id="password" name="_password" placeholder="{{ "security.login.password"|trans({}, 'FOSUserBundle')|replace({":":""}) }}" />
+            </div>
+        </div>
+        <div class="element">
+            <div class="text-box">
+                <input type="checkbox" id="remember_me" name="_remember_me" checked="checked" /> {{ "security.login.remember_me"|trans({}, 'FOSUserBundle')|replace({":":""}) }}
+            </div>
+        </div>
+        <div class="element">
+            <div class="text-box">
+                <input type="submit" name="login" value="{{ "security.login.submit"|trans({}, 'FOSUserBundle')|replace({":":""}) }}"/>
+                {{ "security.login.subscribe" | trans({"%link%" : path('fos_user_registration_register')})|raw }}
+            </div>
+        </div>
     </form>
 </div>
 {% endblock %}

@@ -4,8 +4,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
         {% block stylesheets %}
-            {% stylesheets filter="compass" "@DrinkWithMainBundle/Resources/assets/scss/clear.scss"
+            {% stylesheets filter="compass"
+                            "@DrinkWithMainBundle/Resources/assets/scss/clear.scss"
                             "@DrinkWithMainBundle/Resources/assets/scss/main.scss"
+                            "@DrinkWithUserBundle/Resources/assets/scss/user.scss"
                             output="style/drink-main.css"%}
             <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}

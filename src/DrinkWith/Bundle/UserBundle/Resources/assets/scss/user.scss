@@ -1,0 +1,25 @@
+$white : #FFFFFF;
+#login {
+    background : $white;
+    margin: 0 auto;
+    width: 400px;
+    .title {
+        text-align : center;
+        width: 100%;
+        font-size: 1.5em;
+    }
+
+    .element {
+        margin: 5px;
+        .text-box {
+            margin: 0 auto;
+            input[type=text], input[type=password]{
+                width: 380px;
+            }
+        }
+        #ressetPasswd {
+            float: right;
+            font-size : 0.8em;
+        }
+    }
+}
