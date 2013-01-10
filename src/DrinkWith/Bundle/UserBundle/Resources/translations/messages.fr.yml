@@ -4,3 +4,13 @@ security:
         title: "Se Connecter"
         forgot_passwd: "Mot de passe oublié ?"
         subscribe : "ou <a href=\"%link%\">s'inscrire</a>"
+
+#register
+registration :
+    register :
+        subscribe : "S'inscrire ou <a href=\"\">se connecter</a>"
+        username: "Nom d'utilisateur"
+        email: "e-mail"
+        password:
+            first: "Mot de passe"
+            second: "Vérification Mot de passe"

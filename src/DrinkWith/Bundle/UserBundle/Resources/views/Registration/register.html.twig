@@ -12,37 +12,43 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Join Drink With Me</h1>
-    <form class="user-form join-form" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST"    >
-        <ul>
-            <li>
-                <div class="text-box">
-                {{ form_widget(form.username, { 'attr': {'placeholder': 'Name'} }) }}
-                </div>
-            </li>
-            <li>
-                <div class="text-box">
-                    {{ form_widget(form.email, { 'attr': {'placeholder': 'Email'} }) }}
-                </div>
-            </li>
-            <li>
-                <div class="text-box">
-                    {{ form_widget(form.plainPassword.first, { 'attr': {'placeholder': 'Password'} }) }}
-                    {{ form_widget(form.plainPassword.second, { 'attr': {'placeholder': 'Retype Password'} }) }}
-                    <div class="clear"></div>
-                </div>
-            </li>
-            <li>
-                <p>
-                By signing up you agree to our <a href="">Terms of Service</a> and <a href="">Policy</a>.
-                </p>
-            </li>
-            <li>
-                {{ form_widget(form) }}
-                <div class="text-box">
-                    <input type="submit" name="submit" value="I'm Agree, sign me up"/>
-                </div>
-            </li>
-        </ul>
-    </form>
+    <div id="register">
+        <div class="title">drink-with.me</div>
+        <div class="subTitle">{{ "registration.register.subscribe"|trans|raw }}</div>
+        <form class="user-form join-form" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST"    >
+            <ul>
+                <li>
+                    <div class="text-box">
+                    {{ form_widget(form.username, { 'attr': {'placeholder': "registration.register.username"|trans|title} }) }}
+                    </div>
+                </li>
+                <li>
+                    <div class="text-box">
+                        {{ form_widget(form.email, { 'attr': {'placeholder': "registration.register.email"|trans|title} }) }}
+                    </div>
+                </li>
+                <li>
+                    <div class="text-box">
+                        {{ form_widget(form.plainPassword.first, { 'attr': {'placeholder': "registration.register.password.first"|trans|title} }) }}
+                    </div>
+                </li>
+                <li>
+                    <div class="text-box">
+                        {{ form_widget(form.plainPassword.second, { 'attr': {'placeholder': "registration.register.password.second"|trans|title} }) }}
+                    </div>
+                </li>
+                <li>
+                    <p>
+                        {{ "registration.register.password.terms-and-policy"|trans|raw }}
+                    </p>
+                </li>
+                <li>
+                    {{ form_widget(form) }}
+                    <div class="text-box">
+                        <input type="submit" name="submit" value="I'm Agree, sign me up"/>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
 {% endblock %}

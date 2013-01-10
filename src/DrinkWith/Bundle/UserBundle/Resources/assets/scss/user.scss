@@ -1,5 +1,6 @@
 $white : #FFFFFF;
-#login {
+
+.userForm {
     background : $white;
     margin: 0 auto;
     width: 400px;
@@ -8,6 +9,10 @@ $white : #FFFFFF;
         width: 100%;
         font-size: 1.5em;
     }
+}
+
+#login {
+    @extend .userForm;
 
     .element {
         margin: 5px;
@@ -22,4 +27,8 @@ $white : #FFFFFF;
             font-size : 0.8em;
         }
     }
+}
+
+#register {
+    @extend .userForm;
 }
