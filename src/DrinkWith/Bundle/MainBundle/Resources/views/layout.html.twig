@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% block meta %}
+
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        {% endblock %}
 
         {% block stylesheets %}
-            {% stylesheets filter="compass"
-                            "@DrinkWithMainBundle/Resources/assets/scss/clear.scss"
-                            "@DrinkWithMainBundle/Resources/assets/scss/main.scss"
-                            "@DrinkWithUserBundle/Resources/assets/scss/user.scss"
-                            output="style/drink-main.css"%}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}
+
+        {% stylesheets filter="compass"
+            "@DrinkWithMainBundle/Resources/assets/scss/clear.scss"
+            "@DrinkWithMainBundle/Resources/assets/scss/main.scss"
+            "@DrinkWithUserBundle/Resources/assets/scss/user.scss"
+            output="style/drink-main.css"%}<link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
 
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         {% endblock %}
 
         {% block headJavascripts %}
+
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
         <script type="text/javascript" src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
         <script type="text/javascript">
@@ -23,28 +27,33 @@
                 $("#overlay").overlay({
                     mask: '#000',
                 });
-                $("#btJoin").click(showUserJoinForm);
-                $("#btLogin").click(showUserLoginForm)
-
-
+                $("#btJoin").click(userShowJoinForm);
+                $("#btLogin").click(userShowLoginForm);
+                $("#btLogout").click(userLogout);
             });
 
-            function showUserJoinForm() {
+            function userShowJoinForm() {
                 $.ajax({
                     url: '{{ path('fos_user_registration_register') }}'
                 }).done(function(response){
                     $("#overlayContent").html(response);
                     $("#overlay").overlay().load();
                 });
-            }
-            function showUserLoginForm() {
+            };
+
+            function userShowLoginForm() {
                 $.ajax({
-                    url: '{{ path('fos_user_security_login') }}'
+                    url: '{{ path('fos_user_security_login') }}',
                 }).done(function(response){
                     $("#overlayContent").html(response);
                     $("#overlay").overlay().load();
                 });
-            }
+            };
+
+            function userLogout() {
+                $(window).attr("location", "{{ path("fos_user_security_logout") }}");
+            };
+
         </script>
         {% endblock %}
 
@@ -52,23 +61,28 @@
     </head>
     <body>
         <header id="topHeader">
-            <div id="logo">Drink-With.me</div>
+            <div id="logo"><a href="{{ path("_home") }}">Drink-With.me</a></div>
             <nav id="navHeader">
                 <ul>
-                    <li><a href="{{ path("_home") }}">{{ 'home'|trans|upper }}</a></li>
+                    <li><a href="{{ path("_home") }}">{{ "navigation.home"|trans }}</a></li>
                 </ul>
             </nav>
             <div id="connect">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <div id="btLogout">{{ "navigation.logout"|trans }}</div>
+            {% else %}
                 <div id="btLogin">
-                    {{ 'login'|trans|upper }}
+                    {{ 'login'|trans }}
                 </div>
                 <div id="btJoin">
-                    {{ 'subscribe'|trans|upper }}
+                    {{ 'subscribe'|trans }}
                 </div>
+            {% endif %}
             </div>
         </header>
         <div id="content">
             {% block content %}
+
             {% endblock %}
         </div>
         <div id="overlay">

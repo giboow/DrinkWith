@@ -37,13 +37,14 @@ header#topHeader {
             font-size: 0.8em;
             cursor: pointer;
             color: $white;
-        }
-        #btLogin {
-            @extend .bt_connect;
             background-color: $green;
             &:hover{
                 background-color: $greenLight;
             };
+        }
+        #btLogin {
+            @extend .bt_connect;
+
         }
         #btJoin {
             @extend .bt_connect;
@@ -51,6 +52,9 @@ header#topHeader {
             &:hover{
                 background-color: $yellowLight;
             };
+        }
+        #btLogout {
+            @extend .bt_connect;
         }
     }
 }
