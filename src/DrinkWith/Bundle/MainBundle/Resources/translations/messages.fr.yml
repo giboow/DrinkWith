@@ -1,0 +1,9 @@
+navigation :
+    home: "Accueil"
+    logout: "Se déconnecter"
+
+contact:
+  us: "Contactez nous"
+
+login : "Se connecter"
+subscribe : "S'inscrire"
