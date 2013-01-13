@@ -8,9 +8,11 @@ security:
 #register
 registration :
     register :
-        subscribe : "S'inscrire ou <a href=\"\">se connecter</a>"
+        subscribe : "S'inscrire ou <a href=\"%link%\">se connecter</a>"
         username: "Nom d'utilisateur"
         email: "e-mail"
         password:
             first: "Mot de passe"
             second: "Vérification Mot de passe"
+        terms-and-policy: "En cliquant sur \"S'inscrire\" tu confirmes que tu acceptes les <a href=\"%link%\">Conditions d'utilisation.</a>"
+        submit : "S'incrire"

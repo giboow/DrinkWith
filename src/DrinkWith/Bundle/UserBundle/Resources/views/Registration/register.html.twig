@@ -1,4 +1,4 @@
-{% extends app.request.isXmlHttpRequest() ? "DrinkWithMainBundle::layout.ajax.twig" : "DrinkWithMainBundle::layout.html.twig"%}
+{% extends app.request.isXmlHttpRequest() ? "DrinkWithMainBundle::layout.ajax.twig" : "DrinkWithMainBundle::layout.html.twig" %}
 
 {% block stylesheets %}
 {{ parent() }}
@@ -19,7 +19,7 @@
             <ul>
                 <li>
                     <div class="text-box">
-                    {{ form_widget(form.username, { 'attr': {'placeholder': "registration.register.username"|trans|title} }) }}
+                    {{ form_widget(form.username, { 'attr': {'placeholder': "registration.register.username"|trans({"%link" : path('fos_user_security_login')})|title} }) }}
                     </div>
                 </li>
                 <li>
@@ -39,13 +39,13 @@
                 </li>
                 <li>
                     <p>
-                        {{ "registration.register.password.terms-and-policy"|trans|raw }}
+                        {{ "registration.register.terms-and-policy"|trans({"%link%" : path('_terms')})|raw }}
                     </p>
                 </li>
                 <li>
-                    {{ form_widget(form) }}
+                   {{ form_widget(form) }}
                     <div class="text-box">
-                        <input type="submit" name="submit" value="I'm Agree, sign me up"/>
+                        <input type="submit" name="submit" value="{{ "registration.register.submit"|trans|title }}"/>
                     </div>
                 </li>
             </ul>
