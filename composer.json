@@ -27,7 +27,9 @@
         "facebook/php-sdk": "dev-master",
         "friendsofsymfony/facebook-bundle": "dev-master",
         "monolog/monolog": "1.2.1",
-        "mockery/mockery": "dev-master"
+        "mockery/mockery": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "doctrine/data-fixtures": "1.0.*@dev"
     },
     "scripts": {
         "post-install-cmd": [
