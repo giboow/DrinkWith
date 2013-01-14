@@ -33,6 +33,7 @@ class DefaultController extends Controller
      */
     public function termsAction()
     {
+
         return array();
     }
 }
