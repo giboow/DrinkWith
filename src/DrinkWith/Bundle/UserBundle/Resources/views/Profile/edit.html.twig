@@ -12,32 +12,27 @@
 {% endblock %}
 
 {% block content %}
-<h1>Edit profile</h1>
+<h1>{{ "profile.edit.title"|trans }}</h1>
 <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
     <ul>
         <li>
             <div class="text-box">
-                   Username : {{ form_widget(form.user.username, { 'attr': {'placeholder': 'Username'} }) }}
+                   {{ 'form.username'|trans({}, "FOSUserBundle") }} {{ form_widget(form.username, { 'attr': {'placeholder': 'profile.show.username'|trans({}, "FOSUserBundle")} }) }}
             </div>
         </li>
         <li>
             <div class="text-box">
-                Email : {{ form_widget(form.user.email, { 'attr': {'placeholder': 'Email'} }) }}
+                {{ 'form.email'|trans({}, "FOSUserBundle") }} {{ form_widget(form.email, { 'attr': {'placeholder': 'profile.show.email'} }) }}
             </div>
         </li>
         <li>
             <div class="text-box">
-                Location : {{ form_widget(form.user.location, { 'attr': {'placeholder': 'Location'} }) }}
-            </div>
-        </li>
-        <li>
-            <div class="text-box">
-                Password validation : {{ form_widget(form.current, { 'attr': {'placeholder': 'Current Password'} }) }}
+                {{ "form.current_password"|trans({}, "FOSUserBundle") }}  {{ form_widget(form.current_password, { 'attr': {'placeholder': "form.current_password"|trans({}, "FOSUserBundle")|replace({":" : ""})} }) }}
             </div>
         </li>
         <li>
             {{ form_widget(form) }}
-             <input type="submit" value="Modify profile" />
+             <input type="submit" value="{{ "profile.edit.submit"|trans({}, "FOSUserBundle") }}" />
         </li>
     </ul>
 </form>

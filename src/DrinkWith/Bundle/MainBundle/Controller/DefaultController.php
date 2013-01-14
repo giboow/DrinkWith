@@ -29,7 +29,7 @@ class DefaultController extends Controller
      * @Route("/terms", name="_terms")
      * @Template()
      *
-     * return array
+     * @return array
      */
     public function termsAction()
     {
