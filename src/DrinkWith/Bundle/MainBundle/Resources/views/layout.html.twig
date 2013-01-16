@@ -12,49 +12,22 @@
             "@DrinkWithMainBundle/Resources/assets/scss/clear.scss"
             "@DrinkWithMainBundle/Resources/assets/scss/main.scss"
             "@DrinkWithUserBundle/Resources/assets/scss/user.scss"
-            output="style/drink-main.css"%}<link rel="stylesheet" href="{{ asset_url }}" />
+            %}<link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
 
-        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        <!-- <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
         {% endblock %}
 
         {% block headJavascripts %}
 
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-        <script type="text/javascript" src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $("#overlay").overlay({
-                    mask: '#000',
-                });
-                $("#btJoin").click(userShowJoinForm);
-                $("#btLogin").click(userShowLoginForm);
-                $("#btLogout").click(userLogout);
-            });
+        <script type="text/javascript" src="/js/jquery-1.8.3.min.js" ></script>
+        <script type="text/javascript" src="/js/jquery.tools.min.js" /></script>
 
-            function userShowJoinForm() {
-                $.ajax({
-                    url: '{{ path('fos_user_registration_register') }}'
-                }).done(function(response){
-                    $("#overlayContent").html(response);
-                    $("#overlay").overlay().load();
-                });
-            };
+        {% javascripts
+            "@DrinkWithMainBundle/Resources/assets/js/main.js"
+            %}<script type="text/javascript" src="{{ asset_url }}" /></script>
+        {% endjavascripts %}
 
-            function userShowLoginForm() {
-                $.ajax({
-                    url: '{{ path('fos_user_security_login') }}',
-                }).done(function(response){
-                    $("#overlayContent").html(response);
-                    $("#overlay").overlay().load();
-                });
-            };
-
-            function userLogout() {
-                $(window).attr("location", "{{ path("fos_user_security_logout") }}");
-            };
-
-        </script>
         {% endblock %}
 
         <title>{% block title %}Drink With{% endblock %}</title>
@@ -68,16 +41,7 @@
                 </ul>
             </nav>
             <div id="connect">
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <div id="btLogout">{{ "navigation.logout"|trans }}</div>
-            {% else %}
-                <div id="btLogin">
-                    {{ 'login'|trans }}
-                </div>
-                <div id="btJoin">
-                    {{ 'subscribe'|trans }}
-                </div>
-            {% endif %}
+                {% render "DrinkWithUserBundle:Default:menu" %}
             </div>
         </header>
         <div id="content">
