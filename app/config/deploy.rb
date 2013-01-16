@@ -11,7 +11,7 @@ set :app_path,    "app"
 
 
 set :user, "jenkins"
-set :use_sudo, false
+set :use_sudo, true
 set :group_writable, true
 set :writable_dirs,     ["app/cache", "app/logs"]
 set :webserver_user,    "www-data"
