@@ -19,6 +19,7 @@ set :permission_method, :chown
 
 set :repository,  "git@github.com:giboow/DrinkWith.git"
 set :scm,         :git
+set :deploy_via,  :rsync_with_remote_cache
 
 set :model_manager, "doctrine"
 
@@ -26,17 +27,16 @@ role :web,        domain                         # Your HTTP server, Apache/etc
 role :app,        domain                         # This may be the same as your `Web` server
 role :db,         domain, :primary => true       # This is where Symfony2 migrations will run
 
-set :shared_children,     ["logs", "web/uploads", "vendor"]
+set  :shared_children,     ["logs", "web/uploads", "vendor"]
 
 set  :keep_releases,  3
-set :dump_assetic_assets, true
-set :use_composer, true
-set :update_vendors, true
+set  :dump_assetic_assets, true
+set  :use_composer, true
+set  :update_vendors, true
 
-set :deploy_via, :rsync_with_remote_cache
 
 # Be more verbose by uncommenting the following line
-logger.level = Logger::MAX_LEVEL
+#logger.level = Logger::MAX_LEVEL
 
 # Run migrations before warming the cache
 #before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"
