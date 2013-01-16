@@ -15,7 +15,6 @@ set :use_sudo, false
 set :group_writable, true
 set :writable_dirs,     ["app/cache", "app/logs"]
 set :webserver_user,    "www-data"
-set :permission_method, :chown
 
 set :repository,  "git@github.com:giboow/DrinkWith.git"
 set :scm,         :git
