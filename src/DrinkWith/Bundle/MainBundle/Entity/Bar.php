@@ -47,7 +47,7 @@ class Bar
     /**
      * @var String
      *
-     * @ORM\Column(name="date_inscription", type="datetime", default="CURRENT_TIMESTAMP")
+     * @ORM\Column(name="date_inscription", type="datetime")
      */
     private $dateInscription;
 
