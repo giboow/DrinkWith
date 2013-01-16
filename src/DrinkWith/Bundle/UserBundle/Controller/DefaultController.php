@@ -24,4 +24,14 @@ class DefaultController extends Controller
         return array('name' => "toto");
     }
 
+    /**
+     * @Template()
+     *
+     * @return array
+     */
+    public function menuAction()
+    {
+        return array('name' => "toto");
+    }
+
 }

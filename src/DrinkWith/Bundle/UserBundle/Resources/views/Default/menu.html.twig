@@ -1,0 +1,16 @@
+{% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    <div id="btLogin" rel="{{ path('fos_user_security_login') }}">
+        {{ 'login'|trans }}
+    </div>
+    <div id="btJoin" rel="{{ path('fos_user_registration_register') }}">
+        {{ 'subscribe'|trans }}
+    </div>
+{% else %}
+    <nav id="navProfile">
+        <ul>
+            <li><!-- <img width="30px" height="30px" src="http://www.gravatar.com/avatar/47d6079d84256100fc8816fe77037595"></img>  -->{{ app.user.username|title }}</li>
+            <li>{{ "navigation.user.parameters"|trans({"%link%" : path("fos_user_profile_edit")})|title|raw }}
+            <li>{{ "navigation.user.logout"|trans({"%link%": path("fos_user_security_logout")})|title|raw }}</li>
+        </ul>
+    </nav>
+{% endif %}

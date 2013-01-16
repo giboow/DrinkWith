@@ -1,4 +1,6 @@
 {% extends "DrinkWithMainBundle::layout.html.twig" %}
 {% block content %}
-	Hello {{ name }}!
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    Hi {{ app.user.username|title }}
+    {% endif %}
 {% endblock %}

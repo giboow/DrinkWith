@@ -20,3 +20,8 @@ registration :
 profile:
     edit:
         title: "Edition du profile"
+
+navigation:
+    user:
+        parameters : "<a href=\"%link%\">Paramètres</a>"
+        logout: "<a href=\"%link%\">Se déconnecter</a>"
