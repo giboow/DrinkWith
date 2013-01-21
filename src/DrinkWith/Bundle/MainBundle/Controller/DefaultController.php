@@ -24,13 +24,24 @@ class DefaultController extends Controller
         return array('name' => "toto");
     }
 
-/**
-     * @Route("/", name="_terms")
+    /**
+     * @Route("/terms", name="_terms")
      * @Template()
      *
      * @return array
      */
     public function termsAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/contact", name="_contact")
+     * @Template()
+     *
+     * @return array
+     */
+    public function contactAction()
     {
         return array();
     }

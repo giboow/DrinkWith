@@ -15,7 +15,6 @@
             %}<link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
 
-        <!-- <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
         {% endblock %}
 
         {% block headJavascripts %}
@@ -24,6 +23,7 @@
         <script type="text/javascript" src="/js/jquery.tools.min.js" /></script>
 
         {% javascripts
+            "@DrinkWithMainBundle/Resources/assets/js/functions.js"
             "@DrinkWithMainBundle/Resources/assets/js/main.js"
             %}<script type="text/javascript" src="{{ asset_url }}" /></script>
         {% endjavascripts %}
@@ -54,7 +54,14 @@
         </div>
         <footer id="bottomFooter">
             <div id="copyrights">
-             &copy;{{ "now"|date("Y") }} <a href="">drink-with.me</a> - <a href="{{ path("_home") }}">{{ 'contact.us'|trans }}</a>
+                 <div class="copyDate">&copy;{{ "now"|date("Y") }}</div>
+                 <div class="urlLink" ref="{{ path("_home") }}">drink-with.me</div>
+            </div>
+            <div id="socialLinks">
+                 <div class="fbLink urlLink" title="{{ "facebook"|title }}" rel="https://www.facebook.com/"></div>
+                 <div class="twitterLink urlLink" title="{{ "twitter"|title }}" rel="http://www.twitter.com/"></div>
+                 <div class="gplusLink urlLink" title="{{ "google +"|title }}" rel="http://www.twitter.com/"></div>
+                 <div class="contactLink urlLink" title="{{ "contact.us"|trans| title }}" rel="{{ path("_contact") }}"></div>
             </div>
         </footer>
     </body>

@@ -17,7 +17,6 @@ set :writable_dirs,     ["app/cache", "app/logs"]
 set :webserver_user,    "www-data"
 set :permission_method, :chown
 #set :use_set_permissions, true
-set :deploy_via, :rsync_with_remote_cache
 
 
 
@@ -38,7 +37,7 @@ set :use_composer, true
 set :update_vendors, true
 
 # Be more verbose by uncommenting the following line
-logger.level = Logger::MAX_LEVEL
+#logger.level = Logger::MAX_LEVEL
 
 # Run migrations before warming the cache
 #before "symfony:cache:warmup", "symfony:doctrine:migrations:migrate"

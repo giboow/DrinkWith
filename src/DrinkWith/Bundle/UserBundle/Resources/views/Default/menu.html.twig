@@ -1,8 +1,8 @@
 {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-    <div id="btLogin" rel="{{ path('fos_user_security_login') }}">
+    <div id="btLogin" class="urlLinkAjax" rel="{{ path('fos_user_security_login') }}">
         {{ 'login'|trans }}
     </div>
-    <div id="btJoin" rel="{{ path('fos_user_registration_register') }}">
+    <div id="btJoin" class="urlLinkAjax" rel="{{ path('fos_user_registration_register') }}">
         {{ 'subscribe'|trans }}
     </div>
 {% else %}
