@@ -7,3 +7,11 @@ contact:
 
 login : "Se connecter"
 subscribe : "S'inscrire"
+
+form:
+    bar:
+        add:
+            name: "nom du bar"
+            latitude: "latitude"
+            longitude: "longitude"
+            submit: "ajouter"

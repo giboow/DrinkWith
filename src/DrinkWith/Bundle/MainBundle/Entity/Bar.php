@@ -3,14 +3,13 @@
 namespace DrinkWith\Bundle\MainBundle\Entity;
 
 use JMS\SecurityExtraBundle\Security\Util\String;
-
 use Doctrine\ORM\Mapping as ORM;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Bar
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="DrinkWith\Bundle\MainBundle\Entity\BarRepository")
  */
 class Bar
 {
@@ -45,11 +44,22 @@ class Bar
     private $longitude;
 
     /**
-     * @var String
+     * @var \DateTime
      *
-     * @ORM\Column(name="date_inscription", type="datetime")
+     * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
-    private $dateInscription;
+    private $created;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $updated;
+
+
 
 
     /**
@@ -132,25 +142,21 @@ class Bar
     }
 
     /**
-     * Set dateInscription
-     *
-     * @param \DateTime $dateInscription
-     * @return Bar
-     */
-    public function setDateInscription($dateInscription)
-    {
-        $this->dateInscription = $dateInscription;
-
-        return $this;
-    }
-
-    /**
-     * Get dateInscription
+     * Get created
      *
      * @return \DateTime
      */
-    public function getDateInscription()
+    public function getCreated()
     {
-        return $this->dateInscription;
+        return $this->created;
+    }
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }

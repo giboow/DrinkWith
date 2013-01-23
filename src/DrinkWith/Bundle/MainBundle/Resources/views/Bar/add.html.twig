@@ -1,0 +1,19 @@
+{% extends "DrinkWithMainBundle::layout.html.twig" %}
+
+{% block content %}
+    <form action="{{ path('_bar_add') }}" {{ form_enctype(form) }}  method="post">
+        <ul>
+            <li>
+                {{ "form.bar.add.name"|trans }} : {{ form_widget(form.name) }}
+            </li>
+            <li>
+                {{ "form.bar.add.latitude"|trans }} : {{ form_widget(form.latitude) }}
+            </li>
+            <li>
+                {{ "form.bar.add.longitude"|trans }} : {{ form_widget(form.longitude) }}
+            </li>
+        </ul>
+        {{ form_widget(form) }}
+        <input type="submit" name="submit" value="{{ "form.bar.add.submit"|trans|title }}" />
+    </form>
+{% endblock %}

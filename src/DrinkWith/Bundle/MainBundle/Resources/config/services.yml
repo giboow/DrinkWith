@@ -1,0 +1,5 @@
+services:
+    bar.form.type:
+        class: DrinkWith\Bundle\MainBundle\Form\BarType
+        tags:
+            - { name: form.type, alias: drinkwith_bundle_mainbundle_bartype}
