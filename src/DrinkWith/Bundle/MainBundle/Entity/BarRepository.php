@@ -15,6 +15,21 @@ use \PDO;
 class BarRepository extends EntityRepository
 {
     /**
+     * Get numbers of bar registered
+     *
+     * @return array
+     */
+    public function count()
+    {
+        $qB = $this->getEntityManager()->createQueryBuilder();
+        $qB->select($qB->expr()->count('b.id'))
+            ->from('DrinkWithMainBundle:Bar', 'b');
+
+        return $qB->getQuery()->getResult(Query::HYDRATE_SINGLE_SCALAR);
+    }
+
+
+    /**
      * Save
      * @param Bar $bar
      */

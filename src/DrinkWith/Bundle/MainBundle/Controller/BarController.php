@@ -2,10 +2,14 @@
 
 namespace DrinkWith\Bundle\MainBundle\Controller;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use DrinkWith\Bundle\MainBundle\Entity\Bar;
+
 
 /**
  * Default controller
@@ -24,6 +28,42 @@ class BarController extends Controller
     {
         return array('name' => "toto");
     }
+
+    /**
+     * Find bar
+     * @param int $id Bar Id
+     *
+     * @Route("/get/{id}.{_format}", name="_bar_find", defaults={"_format"="html"}, requirements={"_format"="html|json"})
+     * @Template()
+     *
+     * @return array
+     */
+    public function getAction($id)
+    {
+        /* @var $bar \DrinkWith\Bundle\MainBundle\Entity\Bar */
+        $bar = $this->getDoctrine()->getRepository('DrinkWithMainBundle:Bar')->find($id);
+        if ($bar === null) {
+            throw new NotFoundHttpException();
+        }
+
+        return array("bar" => $bar);
+    }
+
+
+    /**
+     * @Route("/count.{_format}", name="_bar_count", defaults={"_format"="json"})
+     * @Cache(smaxage="15")
+     * @Template
+     *
+     * @return array
+     */
+    public function countAction()
+    {
+        $count = $this->getDoctrine()->getRepository('DrinkWithMainBundle:Bar')->count();
+
+        return array('count' => $count);
+    }
+
 
     /**
      * @Route("/add", name="_bar_add")
