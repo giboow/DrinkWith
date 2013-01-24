@@ -23,3 +23,6 @@ assetic:
     filters:
         compass:
             style: "compressed"
+
+twig:
+  exception_controller: "DrinkWithMainBundle:Error:error"

@@ -32,3 +32,7 @@ drink_with_bar:
     resource: "@DrinkWithMainBundle/Controller/BarController.php"
     type:     annotation
     prefix:   /bar
+
+_error:
+    pattern:  /error
+    defaults: { _controller: DrinkWithMainBundle:Error:Error }
