@@ -14,10 +14,21 @@ use \PDO;
  */
 class BarRepository extends EntityRepository
 {
+
+    /**
+     * Save
+     * @param Bar $bar
+     */
+    public function saveBar(Bar $bar)
+    {
+        $this->_em->persist($bar);
+        $this->_em->flush($bar);
+    }
+
     /**
      * Get numbers of bar registered
      *
-     * @return array
+     * @return int
      */
     public function count()
     {
@@ -29,13 +40,23 @@ class BarRepository extends EntityRepository
     }
 
 
+
+
     /**
-     * Save
-     * @param Bar $bar
+     * List bar, if want just query params $getQueryBuilder value must be set at true
+     * @param bool $getQueryBuilder
+     *
+     * @return array|\Doctrine\ORM\QueryBuilder
      */
-    public function saveBar(Bar $bar)
+    public function listBar($getQueryBuilder = false)
     {
-        $this->_em->persist($bar);
-        $this->_em->flush($bar);
+        $qB = $this->getEntityManager()->createQueryBuilder();
+        $qB->select("b")->from("DrinkWithMainBundle:Bar", "b");
+        if ($getQueryBuilder) {
+
+            return $qB;
+        }
+
+        return $qB->getQuery()->getResult();
     }
 }

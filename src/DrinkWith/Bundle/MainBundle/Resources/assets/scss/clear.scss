@@ -18,3 +18,13 @@ ul {
         list-style: none;
     }
 }
+
+table {
+    border: solid 1px black;
+    border-collapse:collapse;
+    tr {
+        td {
+            border: solid 1px black;
+        }
+    }
+}

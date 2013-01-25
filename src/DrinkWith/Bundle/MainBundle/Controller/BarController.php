@@ -2,6 +2,10 @@
 
 namespace DrinkWith\Bundle\MainBundle\Controller;
 
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+
+use Pagerfanta\Pagerfanta;
+
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -19,29 +23,51 @@ use DrinkWith\Bundle\MainBundle\Entity\Bar;
 class BarController extends Controller
 {
     /**
-     * @Route("/", name="_bar_home")
+     * @Route("/list.{_format}", name="_bar_list", defaults={"_format"="html"}, requirements={"_format"="html|json"})
      * @Template()
      *
      * @return array
      */
-    public function indexAction()
+    public function listAction()
     {
-        return array('name' => "toto");
+        /* @var $repository \DrinkWith\Bundle\MainBundle\Entity\BarRepository */
+        $repository = $this->getDoctrine()->getRepository('DrinkWithMainBundle:Bar');
+        $request = $this->getRequest();
+        if ($request->getRequestFormat() == "json") {
+
+            return array('list' => $repository->listBar());
+        }
+        $qb = $repository->listBar(true);
+        $paginator = new Pagerfanta(new DoctrineORMAdapter($qb->getQuery()));
+        $paginator->setMaxPerPage(10);
+        try {
+            $request = $this->getRequest();
+            $paginator->setCurrentPage($request->query->get('page', 1));
+        } catch (NotValidCurrentPageException $e) {
+            throw new NotFoundHttpException();
+        }
+
+        return array(
+            'paginator' => $paginator,
+            'pagerfanta_opts' => array()
+        );
     }
 
     /**
      * Find bar
      * @param int $id Bar Id
      *
-     * @Route("/get/{id}.{_format}", name="_bar_find", defaults={"_format"="html"}, requirements={"_format"="html|json"})
+     * @Route("/get/{id}.{_format}", name="_bar_get", defaults={"_format"="html"}, requirements={"_format"="html|json"})
      * @Template()
      *
      * @return array
      */
     public function getAction($id)
     {
+        /* @var $repository \DrinkWith\Bundle\MainBundle\Entity\BarRepository */
+        $repository = $this->getDoctrine()->getRepository('DrinkWithMainBundle:Bar');
         /* @var $bar \DrinkWith\Bundle\MainBundle\Entity\Bar */
-        $bar = $this->getDoctrine()->getRepository('DrinkWithMainBundle:Bar')->find($id);
+        $bar = $repository->find($id);
         if ($bar === null) {
             throw new NotFoundHttpException();
         }

@@ -67,6 +67,19 @@ a, .urlLink {
     }
 }
 
+//Pager Fanta
+.pagerFanta {
+    nav{
+        margin: 5px 0;
+        .disabled {
+            display: none;
+        }
+        .current {
+            font-weight: bold;
+        }
+    }
+}
+
 //Site
 header#topHeader {
     background-color: $black;
@@ -194,6 +207,20 @@ footer#bottomFooter {
         &:hover{
             color: $black;
             text-decoration: none;
+        }
+    }
+}
+
+.barList {
+    table {
+        td {
+            text-align : center;
+            &.name {
+                min-width: 100px;
+            }
+            &.latitude, &.longitude {
+                min-width: 50px;
+            }
         }
     }
 }
