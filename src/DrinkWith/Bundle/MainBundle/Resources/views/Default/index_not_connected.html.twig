@@ -1,0 +1,45 @@
+{% extends "DrinkWithMainBundle::layout.html.twig" %}
+{% block stylesheets %}
+{{ parent() }}
+<style>
+<!--
+#gmap{
+    background: #B2B2B2;
+}
+-->
+</style>
+{% endblock %}
+{% block headJavascripts %}
+{{ parent() }}
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+    var positionCenter = new google.maps.LatLng(48.85, 2,3 );
+    var zoom = 12;
+
+    var map = new google.maps.Map(
+        document.getElementById('gmap'), {
+            center: positionCenter,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            streetViewControl: false,
+            panControl: false,
+            zoom: zoom,
+            noClear: true,
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.RIGHT_TOP,
+                style: google.maps.ZoomControlStyle.LARGE
+            }
+        }
+    );
+});
+
+
+</script>
+{% endblock %}
+
+{% block content %}
+<div id="gmap" style="height: 400px;">
+</div>
+
+{% endblock %}
