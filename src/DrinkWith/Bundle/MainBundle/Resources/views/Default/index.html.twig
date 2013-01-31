@@ -1,6 +1,5 @@
-{% extends "DrinkWithMainBundle::layout.html.twig" %}
-{% block content %}
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-    Hi {{ app.user.username|title }}
-    {% endif %}
-{% endblock %}
+{% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    {% include "DrinkWithMainBundle:Default:index_not_connected.html.twig" %}
+{% else  %}
+    {% include "DrinkWithMainBundle:Default:index_connected.html.twig" %}
+{% endif %}
