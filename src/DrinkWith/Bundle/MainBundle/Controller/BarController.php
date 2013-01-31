@@ -2,12 +2,10 @@
 
 namespace DrinkWith\Bundle\MainBundle\Controller;
 
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
-
 use Pagerfanta\Pagerfanta;
-
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -99,7 +97,10 @@ class BarController extends Controller
      */
     public function addAction()
     {
-        //phpinfo();
+        if (!$this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            throw new AccessDeniedException();
+        }
+
         $bar = new Bar();
         $form = $this->createForm(
             $this->get('bar.form.type'),
