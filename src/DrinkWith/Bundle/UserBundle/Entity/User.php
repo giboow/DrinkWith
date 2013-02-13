@@ -23,6 +23,12 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="\DrinkWith\Bundle\MainBundle\Entity\Bar", mappedBy="user", cascade={"persist"})
+     * @ORM\JoinColumn(name="bar_id", referencedColumnName="id")
+     */
+    protected $desk;
+
 
     /**
      * Stringify user, return user id

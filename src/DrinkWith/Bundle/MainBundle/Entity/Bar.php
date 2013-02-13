@@ -26,7 +26,7 @@ class Bar
 
     /**
      * @var \DrinkWith\Bundle\UserBundle\Entity\User
-     * @ORM\OneToMany(targetEntity="\DrinkWith\Bundle\UserBundle\Entity\User",  cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="\DrinkWith\Bundle\UserBundle\Entity\User", inversedBy="bar", cascade={"persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * @Assert\Type(type="\DrinkWith\Bundle\UserBundle\Entity\User")
      */
