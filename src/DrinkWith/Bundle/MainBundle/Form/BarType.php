@@ -25,7 +25,8 @@ class BarType extends AbstractType
         $builder
             ->add('name')
             ->add('latitude')
-            ->add('longitude');
+            ->add('longitude')
+            ->add('user', 'hidden');
     }
 
     /**

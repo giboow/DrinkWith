@@ -101,15 +101,20 @@ class BarController extends Controller
             throw new AccessDeniedException();
         }
 
+        $currentUser = $this->container->get('security.context')->getToken()->getUser();
+
         $bar = new Bar();
         $form = $this->createForm(
             $this->get('bar.form.type'),
             $bar
         );
 
+
         $request = $this->getRequest();
         if ($request->getMethod() == "POST") {
             $form->bind($request);
+
+            $bar->setUser($currentUser);
             if ($form->isValid()) {
                 $b = $this->getDoctrine()
                 ->getRepository('DrinkWithMainBundle:Bar')

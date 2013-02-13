@@ -5,6 +5,7 @@ namespace DrinkWith\Bundle\MainBundle\Entity;
 use JMS\SecurityExtraBundle\Security\Util\String;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Bar
  *
@@ -21,6 +22,16 @@ class Bar
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+
+    /**
+     * @var \DrinkWith\Bundle\UserBundle\Entity\User
+     * @ORM\OneToMany(targetEntity="\DrinkWith\Bundle\UserBundle\Entity\User",  cascade={"persist"})
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @Assert\Type(type="\DrinkWith\Bundle\UserBundle\Entity\User")
+     */
+    private $user;
+
 
     /**
      * @var string
@@ -60,8 +71,6 @@ class Bar
     private $updated;
 
 
-
-
     /**
      * Get id
      *
@@ -74,8 +83,8 @@ class Bar
 
     /**
      * Set name
-     * @param string $name
      *
+     * @param string $name
      * @return Bar
      */
     public function setName($name)
@@ -97,8 +106,8 @@ class Bar
 
     /**
      * Set latitude
-     * @param float $latitude
      *
+     * @param float $latitude
      * @return Bar
      */
     public function setLatitude($latitude)
@@ -120,8 +129,8 @@ class Bar
 
     /**
      * Set longitude
-     * @param float $longitude
      *
+     * @param float $longitude
      * @return Bar
      */
     public function setLongitude($longitude)
@@ -142,6 +151,19 @@ class Bar
     }
 
     /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Bar
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
      * Get created
      *
      * @return \DateTime
@@ -150,6 +172,20 @@ class Bar
     {
         return $this->created;
     }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Bar
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
     /**
      * Get updated
      *
@@ -158,5 +194,28 @@ class Bar
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \DrinkWith\Bundle\UserBundle\Entity\User $user
+     * @return Bar
+     */
+    public function setUser(\DrinkWith\Bundle\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \DrinkWith\Bundle\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
