@@ -11,7 +11,7 @@ $grey : #999999;
 $bottomColor : #D1D1D1;
 
 body {
-    background-color: $white;
+    background-color: $bottomColor;
     //font-family: 'Lato', sans-serif;
     font-family: "Helvetica","Arial","sans-serif"
 }
@@ -145,6 +145,7 @@ header#topHeader {
 }
 
 #content {
+background-color: $white;
     min-height: 450px;
     margin : 0 auto;
     padding: 10px;
@@ -157,9 +158,8 @@ header#topHeader {
     background-color:#FFF;
     min-height:100px;
     min-width: 100px;
-    border:1px solid #666;
-    -moz-box-shadow:0 0 90px 5px #000;
-    -webkit-box-shadow: 0 0 90px #000;
+    @include single-box-shadow($black, 0, 0, 90px, 5px);
+    @include border-radius(10px, 10px);
     padding: 10px;
     .close {
         background-image:url('/img/overlay/close.png');
