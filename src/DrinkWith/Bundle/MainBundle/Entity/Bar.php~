@@ -26,7 +26,7 @@ class Bar
 
     /**
      * @var \DrinkWith\Bundle\UserBundle\Entity\User
-     * @ORM\OneToOne(targetEntity="\DrinkWith\Bundle\UserBundle\Entity\User", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="\DrinkWith\Bundle\UserBundle\Entity\User", inversedBy="bar", cascade={"persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * @Assert\Type(type="\DrinkWith\Bundle\UserBundle\Entity\User")
      */
@@ -83,8 +83,8 @@ class Bar
 
     /**
      * Set name
-     *
      * @param string $name
+     *
      * @return Bar
      */
     public function setName($name)
@@ -106,8 +106,8 @@ class Bar
 
     /**
      * Set latitude
-     *
      * @param float $latitude
+     *
      * @return Bar
      */
     public function setLatitude($latitude)
@@ -129,8 +129,8 @@ class Bar
 
     /**
      * Set longitude
-     *
      * @param float $longitude
+     *
      * @return Bar
      */
     public function setLongitude($longitude)
@@ -152,8 +152,8 @@ class Bar
 
     /**
      * Set created
-     *
      * @param \DateTime $created
+     *
      * @return Bar
      */
     public function setCreated($created)
@@ -175,8 +175,8 @@ class Bar
 
     /**
      * Set updated
-     *
      * @param \DateTime $updated
+     *
      * @return Bar
      */
     public function setUpdated($updated)
@@ -198,8 +198,8 @@ class Bar
 
     /**
      * Set user
-     *
      * @param \DrinkWith\Bundle\UserBundle\Entity\User $user
+     *
      * @return Bar
      */
     public function setUser(\DrinkWith\Bundle\UserBundle\Entity\User $user = null)

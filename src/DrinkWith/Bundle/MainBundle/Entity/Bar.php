@@ -83,8 +83,8 @@ class Bar
 
     /**
      * Set name
-     *
      * @param string $name
+     *
      * @return Bar
      */
     public function setName($name)
@@ -106,8 +106,8 @@ class Bar
 
     /**
      * Set latitude
-     *
      * @param float $latitude
+     *
      * @return Bar
      */
     public function setLatitude($latitude)
@@ -129,8 +129,8 @@ class Bar
 
     /**
      * Set longitude
-     *
      * @param float $longitude
+     *
      * @return Bar
      */
     public function setLongitude($longitude)
@@ -152,8 +152,8 @@ class Bar
 
     /**
      * Set created
-     *
      * @param \DateTime $created
+     *
      * @return Bar
      */
     public function setCreated($created)
@@ -175,8 +175,8 @@ class Bar
 
     /**
      * Set updated
-     *
      * @param \DateTime $updated
+     *
      * @return Bar
      */
     public function setUpdated($updated)
@@ -198,8 +198,8 @@ class Bar
 
     /**
      * Set user
-     *
      * @param \DrinkWith\Bundle\UserBundle\Entity\User $user
+     *
      * @return Bar
      */
     public function setUser(\DrinkWith\Bundle\UserBundle\Entity\User $user = null)

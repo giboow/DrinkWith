@@ -24,10 +24,11 @@ class User extends BaseUser
     protected $id;
 
     /**
+     *
      * @ORM\OneToMany(targetEntity="\DrinkWith\Bundle\MainBundle\Entity\Bar", mappedBy="user", cascade={"persist"})
      * @ORM\JoinColumn(name="bar_id", referencedColumnName="id")
      */
-    protected $desk;
+    protected $bar;
 
 
     /**
@@ -53,4 +54,44 @@ class User extends BaseUser
     }
 
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
+
+
+    /**
+     * Add bar
+     * @param \DrinkWith\Bundle\MainBundle\Entity\Bar $bar
+     *
+     * @return User
+     */
+    public function addBar(\DrinkWith\Bundle\MainBundle\Entity\Bar $bar)
+    {
+        $this->bar[] = $bar;
+
+        return $this;
+    }
+
+    /**
+     * Remove bar
+     *
+     * @param \DrinkWith\Bundle\MainBundle\Entity\Bar $bar
+     */
+    public function removeBar(\DrinkWith\Bundle\MainBundle\Entity\Bar $bar)
+    {
+        $this->bar->removeElement($bar);
+    }
+
+    /**
+     * Get bar
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBar()
+    {
+        return $this->bar;
+    }
 }

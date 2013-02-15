@@ -109,7 +109,6 @@ class BarController extends Controller
             $bar
         );
 
-
         $request = $this->getRequest();
         if ($request->getMethod() == "POST") {
             $form->bind($request);
@@ -119,8 +118,9 @@ class BarController extends Controller
                 $b = $this->getDoctrine()
                 ->getRepository('DrinkWithMainBundle:Bar')
                 ->saveBar($bar);
-            }
 
+                return $this->redirect($this->generateUrl('_bar_list'));
+            }
         }
 
         return array(
