@@ -41,5 +41,5 @@ $(document).ready(function(){
 {% block content %}
 <div id="gmap" style="height: 400px;">
 </div>
-
+{% render "DrinkWithMainBundle:Bar:best" with {'nb' : 4, "_format": "content"} %}
 {% endblock %}

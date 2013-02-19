@@ -59,4 +59,24 @@ class BarRepository extends EntityRepository
 
         return $qB->getQuery()->getResult();
     }
+
+    /**
+     * Get best bars
+     * @param int  $nb
+     * @param bool $getQueryBuilder
+     *
+     * @return array|\Doctrine\ORM\QueryBuilder
+     */
+    public function getBestBars($nb, $getQueryBuilder=false)
+    {
+        $qB = $this->getEntityManager()->createQueryBuilder();
+        $qB->select("b")->from("DrinkWithMainBundle:Bar", "b")
+            ->setMaxResults($nb);
+        if ($getQueryBuilder) {
+            return $qB;
+        }
+
+        return $qB->getQuery()->getResult();
+
+    }
 }

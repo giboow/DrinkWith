@@ -128,4 +128,23 @@ class BarController extends Controller
         );
     }
 
+    /**
+     * Affichage des bars les mieux notés
+     * @param int $nb nombre de bar à afficher
+     *
+     * @Route("/best/{nb}.{_format}", name="_bar_best", requirements={"nb"="\d+"}, defaults={"nb"=10, "_format"="html"})
+     * @Template()
+     *
+     * @return array
+     */
+    public function bestAction($nb)
+    {
+
+        $bars = $this->getDoctrine()
+            ->getRepository("DrinkWithMainBundle:Bar")
+            ->getBestBars($nb);
+
+        return array("bars" => $bars);
+    }
+
 }

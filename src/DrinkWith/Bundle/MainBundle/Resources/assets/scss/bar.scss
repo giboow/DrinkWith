@@ -1,0 +1,12 @@
+$white : #FFFFFF;
+$black : #000000;
+
+#bests {
+    .bar {
+        border : solid 1px $black;
+        width : 250px;
+        height: 175px;
+        float: left;
+        margin: 5px 10px;
+    }
+}
